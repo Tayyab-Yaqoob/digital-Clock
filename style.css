@@ -1,0 +1,139 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    height: 100vh;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    height: 45%;
+    width: 40%;
+    display: grid;
+    grid-row: 35% 65%;
+    align-items: center;
+    justify-items: center;
+    border: .3rem none #a1a1a1;
+    border-radius: 3rem;
+    box-shadow: 0 0 1rem #a1a1a1;
+}
+
+h1 {
+    color: white;
+    margin-top: 3rem;
+    font-size: 3.5rem;
+    text-align: center;
+    padding: 0 1rem;
+    border-bottom: 2px solid #a1a1a1;
+    background: linear-gradient(90deg, #a1a1a1, #83da40,#4584e3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.Clock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 .5rem;
+    height: 8rem;
+    color: #fff;
+    background-color: #0d0d0d;
+    position: relative;
+    border-radius: 1rem;
+    font-size: 4rem;
+    overflow: hidden;
+}
+.Clock p {
+    font-size: 1rem;
+}
+
+.Clock::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 90%;
+    height: 8rem;
+    background: linear-gradient(0deg, transparent, transparent, #83da40, #83da40, #83da40);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 5s linear infinite;
+}
+
+.Clock::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 90%;
+    height: 8rem;
+    background: linear-gradient(0deg, transparent, transparent, #4584e3, #4584e3, #4584e3);
+    z-index: 0;
+    transform-origin: bottom right;
+    animation: animate 5s linear infinite;
+    animation-delay: -3s;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.fr-clock {
+    align-items: center;
+    padding: .6rem;
+    background-color: #0d0d0d;
+    border-radius: 1rem;
+    width: 95%;
+    height: 95%;
+    z-index: 1;
+}
+
+@media (max-width: 890px) {
+    .container {
+        width: 60%;
+    }
+    .Clock {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 590px) {
+    .container {
+        grid-template-rows: 40% 60%;
+    }
+    h1 {
+        margin-top: 0;
+    }
+    .box {
+        display: grid;
+        grid-template-rows: 33% 33% 33%;
+    }
+    .Clock {
+        width: 30vw;
+        margin: 0;
+        font-size: 4rem;
+        margin-top: .8rem;
+    }
+}
